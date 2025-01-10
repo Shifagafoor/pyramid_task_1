@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+  }
+  body{
+    background-color: rgb(176, 202, 124);
+  }
+
+  .site{
+    padding: 20px;
+  }
+
+  .triangle{
+    display: flex;
+    flex-direction: column;
+    background-color:  rgb(152, 179, 99);
+    height: 90vh;
+    border-radius: 10px;
+    padding-inline: 10px;
+  }
+
+
+  .heading h1{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    font-size: 30px;
+    color: #ffff;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .light{
+    background-color: rgb(252, 237, 214);
+    padding: 20px;
+    border-radius: 8px;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .input{
+    width: 60px;
+  }
+  .pyramid{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+
+  .rows{
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .delay-input{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+
+  .delay{
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .start{
+    gap: 6px;
+    padding: 4px;
+    background-color: #ffff;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+  }
+
+  .stop{
+    gap: 6px;
+    padding: 4px;
+    background-color: #ffff;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+  }
+
+
+  @media screen and (min-width:425px) {
+    .light{
+        background-color: #ffff;
+        padding: 20px;
+        width: 70vh;
+        border-radius: 8px;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+  }
+
+  @media screen and (min-width:768px) {
+    .light{
+        background-color: #ffff;
+        padding: 20px;
+        width: 70vh;
+        border-radius: 8px;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .pyramid{
+      display: none;   
+    }
+    .delay-input{
+      display: none;
+    }
+    .buttons{
+      display: none;
+    }
+  }
+
