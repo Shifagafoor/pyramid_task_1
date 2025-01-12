@@ -37,6 +37,16 @@ start_button.addEventListener('click', () => {
     });
 });
 
+stop_button.addEventListener('click' , () => {
+    const rows = display_output.querySelectorAll('div');
+
+    rows.forEach((row, index) => {
+        console.log(row)
+        setTimeout(() => {
+
+        })
+    })
+})
 
 function animateRow(row) {
     const circles = row.querySelectorAll('div');
