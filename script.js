@@ -3,6 +3,11 @@ const display_output = document.querySelector('.display_output');
 const start_button = document.querySelector('.start');
 const stop_button = document.querySelector('.stop');
 const restart_button = document.querySelector('.restart');
+
+let animationTimeouts = [];  
+let isAnimating = false;
+
+
 draw_button.addEventListener('click', () => {
     const numRows = parseInt(document.querySelector('.pyramid .input').value);
     display_output.innerHTML = ''; 
@@ -59,4 +64,3 @@ function animateRow(row) {
         }); 
     });
 }
-
