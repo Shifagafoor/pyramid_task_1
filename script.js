@@ -66,7 +66,7 @@ draw_button.addEventListener('click', () => {
                     circle.style.transition = 'transform 1s ease, opacity 0.3s ease';
                     circle.style.transform = 'scale(1.1)'; 
                     circle.style.opacity = 1; 
-                    // circle.style.backgroundColor = 'green'; 
+                    circle.style.backgroundColor = 'green'; 
                 });
                 animationTimeouts.push(timeout);
             });
