@@ -3,6 +3,7 @@ const display_output = document.querySelector('.display_output');
 const start_button = document.querySelector('.start');
 const stop_button = document.querySelector('.stop');
 const restart_button = document.querySelector('.restart');
+const colors = document.querySelector('.color')
 
 let isAnimating = false;
 
@@ -50,10 +51,9 @@ draw_button.addEventListener('click', () => {
             const circles = row.querySelectorAll('div');
             circles.forEach((circle, index) => {
                 const timeout = setTimeout(() => {
-                    circle.style.transition = 'transform 0s ease, opacity 0.3s ease';
+                    circle.style.transition = 'transform 1s ease, opacity 0.3s ease';
                     circle.style.transform = 'scale(1.1)'; 
                     circle.style.opacity = 1; 
-                    circle.style.backgroundColor = 'green'; 
                 });
                 animationTimeouts.push(timeout);
             });
@@ -65,7 +65,7 @@ draw_button.addEventListener('click', () => {
         stop_button.disabled = true;
     
         animationTimeouts.forEach(timeout => clearTimeout(timeout));
-        animationTimeouts = []; 
+        timeout = []; 
     });
     
     restart_button.addEventListener('click', () => {

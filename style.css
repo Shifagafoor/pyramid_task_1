@@ -96,6 +96,13 @@ button {
   margin-left: 0.6rem;
 }
 
+.whole{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
 .display_output{
   background: linear-gradient(145deg, #1f1f1f, #292929);
   border: 1px solid transparent;
