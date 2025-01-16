@@ -17,10 +17,16 @@ draw_button.addEventListener('click', () => {
         rowDiv.style.justifyContent = 'center';
 
         for (let j = 0; j < i; j++) {
-            circle.classList.add('.circle_row')
+            const circle = document.createElement('div');
+            circle.style.width = '20px';
+            circle.style.height = '20px';
+            circle.style.border = '2px solid white';
+            circle.style.borderRadius = '50%';
+            circle.style.margin = '5px';
+
             rowDiv.appendChild(circle);
         }
-        
+
         display_output.appendChild(rowDiv);
     }
     });

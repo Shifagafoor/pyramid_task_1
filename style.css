@@ -92,7 +92,7 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-button i {
+button {
   margin-left: 0.6rem;
 }
 
@@ -106,15 +106,6 @@ button i {
   justify-content: center;
   display: flex;
   flex-direction: column;
-}
-
-mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-.circle_row{
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 50%;
-  margin: 5px;
 }
 
 
