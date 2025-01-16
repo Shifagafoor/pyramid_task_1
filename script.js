@@ -5,6 +5,18 @@ const stop_button = document.querySelector('.stop');
 const restart_button = document.querySelector('.restart');
 const colors = document.querySelector('.color')
 
+let color = true;
+let colorPalet = ''
+
+colors.addEventListener('input',(event) => {
+  const colorPalet = event.target.value;
+  
+  circle.style.backgroundColor = colorPalet;
+  console.log(colorPalet);  
+});
+
+
+
 let isAnimating = false;
 
 
@@ -54,6 +66,7 @@ draw_button.addEventListener('click', () => {
                     circle.style.transition = 'transform 1s ease, opacity 0.3s ease';
                     circle.style.transform = 'scale(1.1)'; 
                     circle.style.opacity = 1; 
+                    // circle.style.backgroundColor = 'green'; 
                 });
                 animationTimeouts.push(timeout);
             });
