@@ -4,7 +4,6 @@ const start_button = document.querySelector('.start');
 const stop_button = document.querySelector('.stop');
 const restart_button = document.querySelector('.restart');
 
-let animationTimeouts = [];  
 let isAnimating = false;
 
 
@@ -31,53 +30,49 @@ draw_button.addEventListener('click', () => {
     }
     });
 
-start_button.addEventListener('click', () => {
-    start_button.disabled = true;
-    stop_button.disabled = false;
+    let animationTimeouts = []; 
 
-    const rows = display_output.querySelectorAll('div'); 
+    start_button.addEventListener('click', () => {
+        start_button.disabled = true;
+        stop_button.disabled = false;
     
-    rows.forEach((row, index) => {
-        setTimeout(() => {
-            row.style.opacity = 1;
-            animateRow(row); 
-        }, index * 100); 
-    });
-
-    function animateRow(row) {
-        const circles = row.querySelectorAll('div');
-        circles.forEach((circle, index) => {
-            setTimeout(() => {
-                circle.style.transition = 'transform 0s ease, opacity 0.3s ease';
-                circle.style.transform = 'scale(1.1)'; 
-                circle.style.opacity = 1; 
-                circle.style.backgroundColor = 'green'; 
-            }); 
+        const rows = display_output.querySelectorAll('div'); 
+        
+        rows.forEach((row, index) => {
+            const timeout = setTimeout(() => {
+                row.style.opacity = 1;
+                animateRow(row); 
+            }, index * 100); 
+            animationTimeouts.push(timeout); 
         });
-    }
-});
-
-stop_button.addEventListener('click', () => {
-    start_button.disabled = false;
-    stop_button.disabled = true;
-
-    const rows = display_output.querySelectorAll('div');
-    rows.forEach((row) => {
-        row.style.opacity = 0;
-        const circles = row.querySelectorAll('div');
-        circles.forEach((circle) => {
-            circle.style.transform = 'scale(1)';
-            circle.style.backgroundColor = 'white';
-        });
+    
+        function animateRow(row) {
+            const circles = row.querySelectorAll('div');
+            circles.forEach((circle, index) => {
+                const timeout = setTimeout(() => {
+                    circle.style.transition = 'transform 0s ease, opacity 0.3s ease';
+                    circle.style.transform = 'scale(1.1)'; 
+                    circle.style.opacity = 1; 
+                    circle.style.backgroundColor = 'green'; 
+                });
+                animationTimeouts.push(timeout);
+            });
+        }
     });
-
-    // animationTimeouts.forEach(timeout => clearTimeout(timeout));
-});
-
-restart_button.addEventListener('click', () => {
-    start_button.disabled = false;
-    stop_button.disabled = true;
-
-    display_output.innerHTML = '';
-});
-
+    
+    stop_button.addEventListener('click', () => {
+        start_button.disabled = false;
+        stop_button.disabled = true;
+    
+        animationTimeouts.forEach(timeout => clearTimeout(timeout));
+        animationTimeouts = []; 
+    });
+    
+    restart_button.addEventListener('click', () => {
+        start_button.disabled = false;
+        stop_button.disabled = true;
+    
+        display_output.innerHTML = '';
+        animationTimeouts = []; 
+    });
+    
