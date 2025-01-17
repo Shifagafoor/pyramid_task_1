@@ -55,7 +55,7 @@ draw_button.addEventListener('click', () => {
             const timeout = setTimeout(() => {
                 row.style.opacity = 1;
                 animateRow(row); 
-            }, index * 100); 
+            }, index*100); 
             animationTimeouts.push(timeout); 
         });
     
