@@ -5,22 +5,23 @@ const stop_button = document.querySelector('.stop');
 const restart_button = document.querySelector('.restart');
 const colors = document.querySelector('.color');
 
-let selectedColor = null; 
+let selectedColor = null;
 
 colors.addEventListener('input', (event) => {
-  selectedColor = event.target.value;
-  console.log(selectedColor);  
+    selectedColor = event.target.value;
+    console.log(selectedColor);
 });
 
 let isAnimating = false;
 
 draw_button.addEventListener('click', () => {
     const numRows = parseInt(document.querySelector('.pyramid .input').value);
-    display_output.innerHTML = ''; 
+    display_output.innerHTML = '';
     for (let i = 1; i <= numRows; i++) {
         const rowDiv = document.createElement('div');
         rowDiv.style.display = 'flex';
         rowDiv.style.justifyContent = 'center';
+        rowDiv.setAttribute("class", "rowDiv")
 
         for (let j = 0; j < i; j++) {
             const circle = document.createElement('div');
@@ -29,45 +30,46 @@ draw_button.addEventListener('click', () => {
             circle.style.border = '2px solid white';
             circle.style.borderRadius = '50%';
             circle.style.margin = '5px';
+            circle.setAttribute("class", "circle")
 
             rowDiv.appendChild(circle);
+
         }
 
         display_output.appendChild(rowDiv);
     }
 });
 
-let animationTimeouts = []; 
+let animationTimeouts = [];
 
 start_button.addEventListener('click', () => {
     start_button.disabled = true;
     stop_button.disabled = false;
 
-    const rows = display_output.querySelectorAll('div'); 
-    
+    const rows = display_output.querySelectorAll('.rowDiv');
+
     rows.forEach((row, index) => {
-        const timeout = setTimeout(() => {
+        
+        const timeout = setInterval(() => {
             row.style.opacity = 1;
-            animateRow(row); 
-        }, index * 100); 
-        animationTimeouts.push(timeout); 
+            // animateRow(row);
+            console.log(row)
+            const timeout = setTimeout(() => {
+                row.classList.add("active")
+            
+            
+                setTimeout(() => {
+                    row.classList.remove("active")
+                },  500);
+            
+            
+            },index*500);
+            animationTimeouts.push(timeout);
+        }, rows.length*500);
+        animationTimeouts.push(timeout);
     });
 
-    function animateRow(row) {
-        const circles = row.querySelectorAll('div');
-        circles.forEach((circle, index) => {
-            const timeout = setTimeout(() => {
-                circle.style.transition = 'transform 1s ease, opacity 0.3s ease';
-                circle.style.transform = 'scale(1.1)'; 
-                circle.style.opacity = 1; 
-                
-                if (selectedColor) {
-                    circle.style.backgroundColor = selectedColor;
-                }
-            });
-            animationTimeouts.push(timeout);
-        });
-    }
+ 
 });
 
 stop_button.addEventListener('click', () => {
@@ -75,7 +77,7 @@ stop_button.addEventListener('click', () => {
     stop_button.disabled = true;
 
     animationTimeouts.forEach(timeout => clearTimeout(timeout));
-    animationTimeouts = []; 
+    animationTimeouts = [];
 });
 
 restart_button.addEventListener('click', () => {
@@ -83,5 +85,5 @@ restart_button.addEventListener('click', () => {
     stop_button.disabled = true;
 
     display_output.innerHTML = '';
-    animationTimeouts = []; 
+    animationTimeouts = [];
 });

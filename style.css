@@ -150,3 +150,6 @@ button {
       transform: scale(1); 
   }
 }
+.rowDiv.active .circle{
+  background-color: cyan;
+}
