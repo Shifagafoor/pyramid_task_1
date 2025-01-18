@@ -15,7 +15,7 @@ colors.addEventListener('input', (event) => {
 
 let isAnimating = false;
 
-draw_button.addEventListener('click', () => {
+draw_button.addEventListener('click', () => {      
     const numRows = parseInt(document.querySelector('.pyramid .input').value);
 
     display_output.innerHTML = '';
