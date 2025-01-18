@@ -5,6 +5,7 @@ const stop_button = document.querySelector('.stop');
 const restart_button = document.querySelector('.restart');
 const colors = document.querySelector('.color');
 
+let delay;
 let selectedColor = null;
 
 colors.addEventListener('input', (event) => {
@@ -47,6 +48,7 @@ start_button.addEventListener('click', () => {
     stop_button.disabled = false;
 
     const rows = display_output.querySelectorAll('.rowDiv');
+    delay = document.querySelector('.delay-input  .input').value;
 
     rows.forEach((row, index) => {
         
@@ -59,12 +61,12 @@ start_button.addEventListener('click', () => {
             
                 setTimeout(() => {
                     row.classList.remove("active")
-                },  500);
+                },  delay);
             
             
-            },index*500);
+            },index*delay);
             animationTimeouts.push(timeout);
-        }, rows.length*500);
+        }, rows.length*delay);
         animationTimeouts.push(timeout);
     });
 
