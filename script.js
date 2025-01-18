@@ -52,7 +52,6 @@ start_button.addEventListener('click', () => {
         
         const timeout = setInterval(() => {
             row.style.opacity = 1;
-            // animateRow(row);
             console.log(row)
             const timeout = setTimeout(() => {
                 row.classList.add("active")
