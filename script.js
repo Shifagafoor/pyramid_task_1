@@ -21,17 +21,17 @@ draw_button.addEventListener('click', () => {
     display_output.innerHTML = '';
     for (let i = 1; i <= numRows; i++) {
         const rowDiv = document.createElement('div');
-        // rowDiv.style.display = 'flex';
-        // rowDiv.style.justifyContent = 'center';
+        rowDiv.style.display = 'flex';
+        rowDiv.style.justifyContent = 'center';
         rowDiv.setAttribute("class", "rowDiv")
 
         for (let j = 0; j < i; j++) {
             const circle = document.createElement('div');
-            // circle.style.width = '20px';
-            // circle.style.height = '20px';
-            // circle.style.border = '2px solid white';
-            // circle.style.borderRadius = '50%';
-            // circle.style.margin = '5px';
+            circle.style.width = '20px';
+            circle.style.height = '20px';
+            circle.style.border = '2px solid white';
+            circle.style.borderRadius = '50%';
+            circle.style.margin = '5px';
             circle.setAttribute("class", "circle")
 
             rowDiv.appendChild(circle);
@@ -55,6 +55,7 @@ start_button.addEventListener('click', () => {
         
         const timeout = setInterval(() => {
             row.style.opacity = 1;
+            // console.log(row)
             const timeout = setTimeout(() => {
                 row.classList.add("active")
             
